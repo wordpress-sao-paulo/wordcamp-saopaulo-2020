@@ -23,7 +23,7 @@ var get=function(key){return getCookie(key)||localCache[key];};var set=function(
 for(cookies_len--;cookies_len>=0;cookies_len--){if(cookies[cookies_len].substring(0,name_eq_len)===name_eq){return decodeURIComponent(cookies[cookies_len].substring(name_eq_len));}};return null;};var checkCookieDomain=function(domain){var randomToken=encodeURIComponent(generateRandomToken(12));document.cookie=encodeURIComponent(cookiePrefix+testCookie)+"="+randomToken+"; domain="+domain+"; path=/;";return getCookie(testCookie)==randomToken;};var getCookieDomain=function(){if(cookieDomain==null){cookieDomain='';var host=document.location.host.toLowerCase().split(':')[0],tokens=host.split('.'),tryDomain;if(typeof TRACKS_COOKIE_DOMAIN!="undefined"){cookieDomain=TRACKS_COOKIE_DOMAIN;}else{for(var i=1;i<=tokens.length;++i){tryDomain='.'+tokens.slice(-i).join('.');if(checkCookieDomain(tryDomain)){cookieDomain=tryDomain;break;}}}
 if(cookieDomain!=''){cookieDomain="; domain="+cookieDomain;}}
 return cookieDomain;};var setCookie=function(key,value,seconds){var name=encodeURIComponent(cookiePrefix+key),date=new Date(),domain=getCookieDomain();if('undefined'===typeof seconds){seconds=15768E4;}
-if(domain.substring(domain.length-'.wp.com'.length,domain.length)==='.wp.com'){return;}
+if(domain.match(/((^|\.)wp\.com$|^\.?w\.org$)/)){return;}
 date.setTime(date.getTime()+seconds*1E3);document.cookie=name+"="+encodeURIComponent(value)+
 getCookieDomain()+"; path=/; expires="+date.toUTCString();};var recordEvent=function(eventName,eventProps){if('_setProperties'===eventName){return;}
 eventProps=eventProps||{};eventProps._en=eventName;send(eventProps);};var identifyUser=function(newUserId,newUserLogin){if(newUserLogin){userLogin=newUserLogin;}
