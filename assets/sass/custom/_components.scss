@@ -1,0 +1,55 @@
+// Buttons
+
+.wp-block-button {
+	background: transparent !important;
+
+	a {
+		@extend .btn;
+	}
+}
+
+.wp-block-button, .is-style-squared {
+	a {
+		border-radius: $border-radius !important;
+	}
+}
+
+
+// Tables
+table {
+	@extend .table;
+}
+
+
+// Iframes
+
+iframe {
+	max-width: 100%;
+}
+
+
+.wp-embed-aspect-16-9 {
+	iframe {
+		max-height: 60vw;
+	}
+}
+
+// Cookies alert
+
+#eu-cookie-law {
+    box-shadow: 0 10px 20px;
+    color: rgba( $black,0.7);
+    line-height: 1.5;
+    padding: 1em 2em;
+
+	input {
+		background: $black;
+		color: $white;
+	}
+}
+
+// Images
+.avatar {
+	@extend .rounded-circle;
+	border: 1px solid $gray-200;
+}

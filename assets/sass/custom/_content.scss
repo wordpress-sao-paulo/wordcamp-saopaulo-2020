@@ -1,0 +1,141 @@
+
+
+body:not(.blog) {
+	.entry-header:first-of-type {
+		background: $gradient-dark;
+		margin-bottom: 5vh;
+		padding: 60px 60px 60px 0;
+
+		@include media-breakpoint-up(lg) {
+			padding: 180px 0 60px 0;
+		}
+
+		> * {
+			@include make-container();
+			@include make-container-max-widths();
+			color: $white;
+		}
+	}
+}
+
+body:not(.home):not(.blog) {
+	.entry-content {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 15px;
+
+		h2, .h2 {
+			margin: 1.3em 0 .6em;
+		}
+	}
+}
+
+
+body.blog {
+
+	#content {
+
+		&:before {
+			content: 'Blog';
+			display: block;
+			width: 100%;
+			background: $gradient-dark;
+			margin-bottom: 5vh;
+			@extend h1;
+			color: $white;
+			padding: 60px 60px 60px 15px;
+
+			@include media-breakpoint-up(lg) {
+				padding: 180px 0 60px 15px;
+			}
+
+			@include one-side-container-margin( padding-left, 0px );
+		}
+	}
+
+	article {
+		margin: 0 auto 45px auto;
+		max-width: 900px;
+		padding: 15px;
+
+		.entry-title {
+			@extend h1;
+			margin: 0;
+
+			a {
+				color: $black;
+			}
+		}
+
+		.entry-meta {
+			font-size: $font-size-sm;
+			color: $gray-500;
+			margin-bottom: 2em;
+			padding: 0;
+		}
+	}
+}
+
+.entry-meta {
+	@extend .text-alt;
+	color: currentColor;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 0 15px;
+	font-size: $font-size-xs;
+
+	a {
+		color: inherit;
+		text-decoration: underline;
+	}
+
+	@at-root footer#{&} {
+		opacity: .5;
+	}
+}
+
+.post-navigation {
+	margin: 2em auto;
+	max-width: 900px;
+	width: 100%;
+	padding: 15px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	@include media-breakpoint-down(sm) {
+		flex-direction: column;
+	}
+
+	.nav-previous,
+	.nav-next {
+		width: 50%;
+
+		@include media-breakpoint-down(sm) {
+			width: 100%;
+		}
+	}
+
+	.nav-previous {
+		text-align: left;
+	}
+
+	.nav-next {
+		text-align: right;
+	}
+
+	.nav-previous a,
+	.nav-next a {
+		background: rgba($black, .05);
+		display: block;
+		height: 100%;
+		padding: 2em;
+		width: 100%;
+
+		&:hover {
+			background: $gradient-dark;
+			color: $white;
+			text-decoration: none;
+		}
+	}
+}

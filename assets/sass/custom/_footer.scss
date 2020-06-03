@@ -1,0 +1,27 @@
+#colophon {
+	font-size: $font-size-sm;
+
+	.widget {
+		text-align: center;
+		padding: 15px;
+	}
+
+	.widget_blog_subscription {
+		padding: 5vmax;
+		color: $white;
+		background: $gradient-dark;
+	}
+
+	.site-info {
+		text-align: center;
+		font-size: $font-size-xs;
+		padding: 15px;
+		color: $white;
+		background: $gradient-dark;
+
+		a {
+			color: currentColor;
+			text-decoration: none;
+		}
+	}
+}

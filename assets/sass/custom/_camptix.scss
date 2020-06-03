@@ -1,0 +1,57 @@
+#tix {
+	margin-bottom: 45px;
+
+	input[type="submit"] {
+		@extend .btn;
+		@extend .btn-primary;
+		min-width: 200px;
+	}
+
+	table {
+		border-bottom: 2px solid $gray-300;
+	}
+
+	/* Hide the Remaining Tickets info */
+	.tix_tickets_table .tix-column-remaining {
+		display: none;
+	}
+
+	.tix-submit {
+		float: none;
+	}
+	.tix-wide-tab {
+		width: 100%;
+	}
+
+	#tix-coupon-link {
+		border: 2px dotted #777;
+		padding: 5px;
+		color: #777;
+
+		&:before {
+			content:"🎫"
+		}
+	}
+
+	@include media-breakpoint-down(md) {
+		/* Stack columns on mobile */
+		.tix-attendee-form tr td.tix-left,
+		.tix-attendee-form tr td.tix-right {
+			display: block;
+			width: 100%;
+		}
+
+		/* Fix the Order Summary width */
+		.tix-order-summary th,
+		.tix-order-summary td {
+			width: 25%;
+			padding: .25em;
+		}
+
+		/* Make form fields visible on mobile */
+		input,
+		select {
+			border: $input-border-width solid $input-border-color;;
+		}
+	}
+}
